@@ -7,9 +7,6 @@
 #include "./funcionalidades/6_TransferirValor.c"
 #include "./funcionalidades/7_SalvarInformacoes.c"
 
-
-#include <stdio.h>
-
 int main() {
     int opcao;
 
