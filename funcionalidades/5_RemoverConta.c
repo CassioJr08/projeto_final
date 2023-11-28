@@ -1,3 +1,7 @@
 void RemoverConta() {
- jefiqhfiwhufhwueh;   
+ if (/* condition */)
+ {
+    /* code */
+ }
+ ;   
 }
