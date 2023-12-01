@@ -60,31 +60,31 @@ int main() {
         switch (opcao) {
             case 1:
                 printf("Opcao 1 selecionada: Criar nova conta\n");
-                criarNovaConta(contas, &numContas);
+                //chamar a função da funcionalidade respectiva
                 break;
             case 2:
                 printf("Opcao 2 selecionada: Depositar e sacar dinheiro em uma conta\n");
-                depositarSacarDinheiro(contas, numContas);
+                //chamar a função da funcionalidade respectiva
                 break;
             case 3:
                 printf("Opcao 3 selecionada: Mostrar saldo total de cada conta\n");
-                mostrarSaldoTotal(contas, numContas);
+                //chamar a função da funcionalidade respectiva
                 break;
             case 4:
                 printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
-                editarInformacoes(contas, numContas);
+                //chamar a função da funcionalidade respectiva
                 break;
             case 5:
                 printf("Opcao 5 selecionada: Remover conta\n");
-                removerConta(contas, &numContas);
+                //chamar a função da funcionalidade respectiva
                 break;
             case 6:
                 printf("Opcao 6 selecionada: Transferir valor de uma conta para outra\n");
-                transferirValor(contas, numContas);
+                //chamar a função da funcionalidade respectiva
                 break;
             case 7:
                 printf("Opcao 7 selecionada: Salvar informacoes de cada conta em um arquivo\n");
-                salvarInformacoes(contas, numContas);
+                //chamar a função da funcionalidade respectiva
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
