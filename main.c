@@ -1,15 +1,43 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include "./funcionalidades/1_CriarNovaConta.c"
-#include "./funcionalidades/2_DepositoSaque.c"
-#include "./funcionalidades/3_MostrarSaldo.c"
-#include "./funcionalidades/4_EditarInformacoes.c"
-#include "./funcionalidades/5_RemoverConta.c"
-#include "./funcionalidades/6_TransferirValor.c"
-#include "./funcionalidades/7_SalvarInformacoes.c"
+
+//1. Criar nova conta
+
+
+
+
+//2. Depositar e sacar dinheiro em uma conta
+
+
+
+
+//3. Mostrar saldo total de cada conta
+
+
+
+
+//4. Editar informacoes do titular de uma conta
+
+
+
+
+//5. Remover conta
+
+
+
+
+//6. Transferir valor de uma conta para outra
+
+
+
+
+//7. Salvar informacoes de cada conta em um arquivo
+
+
+
 
 int main() {
+    ContaBancaria contas[100];
+    int numContas = 0;
     int opcao;
 
     do {
@@ -32,31 +60,31 @@ int main() {
         switch (opcao) {
             case 1:
                 printf("Opcao 1 selecionada: Criar nova conta\n");
-                criarConta();
+                criarNovaConta(contas, &numContas);
                 break;
             case 2:
                 printf("Opcao 2 selecionada: Depositar e sacar dinheiro em uma conta\n");
-                DepositoSaque();
+                depositarSacarDinheiro(contas, numContas);
                 break;
             case 3:
                 printf("Opcao 3 selecionada: Mostrar saldo total de cada conta\n");
-                MostrarSaldo();
+                mostrarSaldoTotal(contas, numContas);
                 break;
             case 4:
                 printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
-                EditarInformacoes();
+                editarInformacoes(contas, numContas);
                 break;
             case 5:
                 printf("Opcao 5 selecionada: Remover conta\n");
-                RemoverConta();
+                removerConta(contas, &numContas);
                 break;
             case 6:
                 printf("Opcao 6 selecionada: Transferir valor de uma conta para outra\n");
-                TransferirValor();
+                transferirValor(contas, numContas);
                 break;
             case 7:
                 printf("Opcao 7 selecionada: Salvar informacoes de cada conta em um arquivo\n");
-                SalvarInformacoes();
+                salvarInformacoes(contas, numContas);
                 break;
             case 0:
                 printf("Saindo do programa. Obrigado!\n");
@@ -69,5 +97,3 @@ int main() {
 
     return 0;
 }
-
-
