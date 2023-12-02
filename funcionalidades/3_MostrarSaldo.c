@@ -8,7 +8,7 @@ typedef struct {
 } criarConta;
 
 void mostrarSaldo(criarConta contas[], int numContas) {
-    // Variável para armazenar o número da conta inserido pelo usuário
+    // Variável para armazenar o número da conta inserido pelo usuário.
     int numeroConta;
 
     // Solicita ao usuário que insira o número da conta
