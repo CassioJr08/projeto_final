@@ -1,10 +1,15 @@
-//arquivos do compilador
+//cabeçalhos do compilador
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <locale.h>
+//cabeçalhos do projeto
+#include "./headers/conta.h"
 //arquivos do projeto
+#include "./funcionalidades/contaExiste.c"
+#include "./funcionalidades/pesquisarConta.c"
+#include "./funcionalidades/salvarConta.c"
 #include "./funcionalidades/1_CriarNovaConta.c"
 #include "./funcionalidades/2_DepositoSaque.c"
 #include "./funcionalidades/3_MostrarSaldo.c"
@@ -17,7 +22,22 @@ int main() {
 
     setlocale(LC_ALL,"Portuguese");
 
+    //VARIÁVEIS
     int opcao;
+    conta contas[255]; //vetor de contas
+
+
+    //apenas ****teste****, pode retirar da versão final
+    strcpy(contas[0].numero,"00891911");
+    strcpy(contas[0].titular,"Douglas Souza de Lima");
+    contas[0].saldo = 1559.9;
+    strcpy(contas[1].numero,"00980991");
+    strcpy(contas[0].titular,"Carolina do Norte");
+    contas[0].saldo = 3540.1;
+    strcpy(contas[2].numero,"67016100");
+    strcpy(contas[2].titular,"Adriel da Cruz");
+    contas[2].saldo = 2345.89;
+    //apenas ****teste****, pode retirar da versão final
 
     // Exibe o menu
     printf("\nEscolha uma opcao:\n");
@@ -35,41 +55,40 @@ int main() {
     scanf("%d", &opcao);
 
     // Executa a ação correspondente à escolha
-    switch (opcao)
-    {
-    case 1:
-        printf("Opcao 1 selecionada: Criar nova conta\n");
-        criarConta();
-        break;
-    case 2:
-        printf("Opcao 2 selecionada: Depositar e sacar dinheiro em uma conta\n");
-        DepositoSaque();
-        break;
-    case 3:
-        printf("Opcao 3 selecionada: Mostrar saldo total de cada conta\n");
-        MostrarSaldo();
-        break;
-    case 4:
-        printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
-        EditarInformacoes();
-        break;
-    case 5:
-        printf("Opcao 5 selecionada: Remover conta\n");
-        RemoverConta();
-        break;
-    case 6:
-        printf("Opcao 6 selecionada: Transferir valor de uma conta para outra\n");
-        TransferirValor();
-        break;
-    case 7:
-        printf("Opcao 7 selecionada: Salvar informacoes de cada conta em um arquivo\n");
-        SalvarInformacoes();
-        break;
-    case 0:
-        printf("Saindo do programa. Obrigado!\n");
-        break;
-    default:
-        printf("Opcao Invalida. Tente novamente!!!\n");
+    switch (opcao){
+        case 1:
+            printf("Opcao 1 selecionada: Criar nova conta\n");
+            criarConta();
+            break;
+        case 2:
+            printf("Opcao 2 selecionada: Depositar e sacar dinheiro em uma conta\n");
+            DepositoSaque();
+            break;
+        case 3:
+            printf("Opcao 3 selecionada: Mostrar saldo total de cada conta\n");
+            MostrarSaldo();
+            break;
+        case 4:
+            printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
+            EditarInformacoes();
+            break;
+        case 5:
+            printf("Opcao 5 selecionada: Remover conta\n");
+            RemoverConta();
+            break;
+        case 6:
+            printf("Opcao 6 selecionada: Transferir valor de uma conta para outra\n");
+            TransferirValor();
+            break;
+        case 7:
+            printf("Opcao 7 selecionada: Salvar informacoes de cada conta em um arquivo\n");
+            SalvarInformacoes(contas);
+            break;
+        case 0:
+            printf("Saindo do programa. Obrigado!\n");
+            break;
+        default:
+            printf("Opcao Invalida. Tente novamente!!!\n");
     }
 
     return 0;
