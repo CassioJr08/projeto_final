@@ -5,6 +5,7 @@
 //cabeçalhos do projeto
 #include "../headers/conta.h"
 
+//Verifica se a conta existe, caso não exista retorna false
 bool contaExiste(char numConta[]){
 
     char dir[255]; //diretório do arquivo
