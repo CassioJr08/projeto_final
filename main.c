@@ -14,7 +14,7 @@
 #include "./funcionalidades/salvarConta.c"
 #include "./funcionalidades/1_CriarNovaConta.c"
 #include "./funcionalidades/2_DepositoSaque.c"
-#include "./funcionalidades/3_MostrarSaldo.c"
+//#include "./funcionalidades/3_MostrarSaldo.c"
 #include "./funcionalidades/4_EditarInformacoes.c"
 #include "./funcionalidades/5_RemoverConta.c"
 #include "./funcionalidades/6_TransferirValor.c"
@@ -24,25 +24,35 @@ int main() {
 
     //VARIÁVEIS
     int opcao;
-    int qtdContas = 1; //quantidade de contas
-    conta *contas = (conta*) malloc(qtdContas * sizeof(conta)); //vetor de contas
+    int qtdContas = 0; //quantidade de contas
+    conta *contas = (conta*) calloc(qtdContas,sizeof(conta)); //vetor de contas
+
 
     //apenas ****teste****, pode retirar da versão final
     conta douglas = {"00891911","Douglas Souza de Lima",1559.9};
-    realocarContas(contas,1,douglas);
-    qtdContas++;
+    realocarContas(&contas,&qtdContas);
+    contas[qtdContas-1] = douglas;
     conta carolina = {"00980991","Carolina do Norte",3540.1};
-    realocarContas(contas,qtdContas,carolina);
-    qtdContas++;
+    realocarContas(&contas,&qtdContas);
+    contas[qtdContas-1] = carolina;
     conta adriel = {"67016100","Adriel da Cruz",2345.89};
-    realocarContas(contas,qtdContas,adriel);
+    realocarContas(&contas,&qtdContas);
+    contas[qtdContas-1] = adriel;
+    int i = 0;
+    while(i<3){
+        printf("contas[%d] = {\"%s\",\"%s\",%.2f}\n",i,contas[i].numero,contas[i].titular,contas[i].saldo);
+        i++;
+    }
+    printf("\n");
     //apenas ****teste****, pode retirar da versão final
+
 
     do{
     //limpa o terminal
-    limparTela();
+    //limparTela();
+    //limparTela() não funciona corretamente em todos os compiladores
     // Exibe o menu
-    printf("SISTEMA DE BANCO\n\n");
+    printf("\nSISTEMA DE BANCO\n\n");
     printf("Escolha uma opcao:\n");
     printf("1. Criar nova conta\n");
     printf("2. Depositar e sacar dinheiro em uma conta\n");
@@ -69,7 +79,9 @@ int main() {
             break;
         case 3:
             printf("Opcao 3 selecionada: Mostrar saldo total de cada conta\n");
-            MostrarSaldo();
+            //MostrarSaldo();
+            // Verificar com a Kamila
+            // O programa está dando erro na execução do MostrarSaldo()
             break;
         case 4:
             printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
