@@ -16,7 +16,7 @@ O sistema será desenvolvido na `linguagem c` e o menu de ações deverá conter
 | 1      | Criar nova conta                           | Giovanna           |
 | 2      | Depositar e sacar dinheiro em uma conta    | Cauã                  |
 | 3      | Mostrar saldo de uma conta                 | Kamila             |
-| 4      | Editar informações do titular de uma conta | -                  |
+| 4      | Editar informações do titular de uma conta | Hadasia                  |
 | 5      | Remover conta                              | Cauã                  |
 | 6      | Transferir valor de uma conta para outra   | Cássio             |
 
