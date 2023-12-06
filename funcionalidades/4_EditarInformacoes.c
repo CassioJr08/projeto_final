@@ -9,7 +9,7 @@ typedef struct {
     float saldo;
 } ContaBancaria;
 
-// Função para criar uma nova conta
+// Função para criar uma nova conta do usuario
 ContaBancaria *criarConta(int numeroConta, const char *nomeTitular, float saldo) {
     ContaBancaria *novaConta = (ContaBancaria *)malloc(sizeof(ContaBancaria));
     
@@ -62,7 +62,7 @@ int main() {
     printf("Digite o nome do titular: ");
     scanf("%s", nomeTitular);
 
-    printf("Digite o saldo inicial: ");
+    printf("Digite o saldo disponivel na conta: ");
     scanf("%f", &saldo);
 
     // Criar a conta
