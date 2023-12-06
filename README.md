@@ -14,10 +14,10 @@ O sistema será desenvolvido na `linguagem c` e o menu de ações deverá conter
 | Número | Nome                                       | Autor              |
 |--------|--------------------------------------------|--------------------|
 | 1      | Criar nova conta                           | Giovanna           |
-| 2      | Depositar e sacar dinheiro em uma conta    | -                  |
+| 2      | Depositar e sacar dinheiro em uma conta    | Cauã                  |
 | 3      | Mostrar saldo de uma conta                 | Kamila             |
 | 4      | Editar informações do titular de uma conta | -                  |
-| 5      | Remover conta                              | -                  |
+| 5      | Remover conta                              | Cauã                  |
 | 6      | Transferir valor de uma conta para outra   | Cássio             |
 
 > [!NOTE]
