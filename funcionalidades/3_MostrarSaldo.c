@@ -11,7 +11,7 @@ typedef struct {
     double saldo;
 } ContaBancaria;
 
-// Função para carregar contas a partir de um arquivo CSV
+// Função para carregar contas a partir de um arquivo
 int carregarContas(ContaBancaria contas[], const char *nomeArquivo) {
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
