@@ -4,13 +4,14 @@
 #include "../headers/conta.h"
 
 // Estrutura para representar uma conta bancaria...
-typedef struct {
-    char numero[20];
-    char titular[100];
-    double saldo;
-} ContaBancaria;
+conta;
+// typedef struct {
+//     char numero[20];
+//     char titular[100];
+//     double saldo;
+// } ContaBancaria;
 
-void salvarContaNoArquivo(const char *nomeArquivo, const ContaBancaria *conta) {
+void salvarContaNoArquivo0(const char *nomeArquivo, const conta *conta) {
     FILE *arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para escrita");
@@ -22,7 +23,7 @@ void salvarContaNoArquivo(const char *nomeArquivo, const ContaBancaria *conta) {
     fclose(arquivo);
 }
 
-void lerContaDoArquivo(const char *nomeArquivo, ContaBancaria *conta) {
+void lerContaDoArquivo0(const char *nomeArquivo, conta *conta) {
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para leitura");
@@ -35,7 +36,7 @@ void lerContaDoArquivo(const char *nomeArquivo, ContaBancaria *conta) {
     fclose(arquivo);
 }
 
-void realizarDeposito(const char *numConta, double valor) {
+void realizarDeposito0(const char *numConta, double valor) {
     char dirConta[100];
 
     // Construir o caminho do arquivo para a conta
@@ -44,14 +45,14 @@ void realizarDeposito(const char *numConta, double valor) {
     strcat(dirConta, ".csv");
 
     // Abrir arquivo da conta para leitura
-    ContaBancaria conta;
-    lerContaDoArquivo(dirConta, &conta);
+    conta conta;
+    lerContaDoArquivo0(dirConta, &conta);
 
     // Realizar o deposito
     conta.saldo += valor;
 
     // Salvar conta atualizada no arquivo
-    salvarContaNoArquivo(dirConta, &conta);
+    salvarContaNoArquivo0(dirConta, &conta);
 
     // Exibir dados apos a operação
     printf("\nDADOS APoS O DEPoSITO\n");
@@ -61,7 +62,7 @@ void realizarDeposito(const char *numConta, double valor) {
     printf("\tSaldo: R$ %.2lf\n", conta.saldo);
 }
 
-void realizarSaque(const char *numConta, double valor) {
+void realizarSaque0(const char *numConta, double valor) {
     char dirConta[100];
 
     // Construir o caminho do arquivo para a conta
@@ -70,8 +71,8 @@ void realizarSaque(const char *numConta, double valor) {
     strcat(dirConta, ".csv");
 
     // Abrir arquivo da conta para leitura
-    ContaBancaria conta;
-    lerContaDoArquivo(dirConta, &conta);
+    conta conta;
+    lerContaDoArquivo0(dirConta, &conta);
 
     // Validar se há saldo suficiente
     if (conta.saldo < valor) {
@@ -83,7 +84,7 @@ void realizarSaque(const char *numConta, double valor) {
     conta.saldo -= valor;
 
     // Salvar conta atualizada no arquivo
-    salvarContaNoArquivo(dirConta, &conta);
+    salvarContaNoArquivo0(dirConta, &conta);
 
     // Exibir dados apos a operação
     printf("\nDADOS APoS O SAQUE\n");
@@ -115,7 +116,7 @@ void realizarOperacao() {
             scanf("%s", numConta);
             printf("Informe o valor: ");
             scanf("%lf", &valor);
-            realizarDeposito(numConta, valor);
+            realizarDeposito0(numConta, valor);
             break;
         case 2:
             printf("Opcao 2 selecionada: Realizar Saque\n");
@@ -123,7 +124,7 @@ void realizarOperacao() {
             scanf("%s", numConta);
             printf("Informe o valor: ");
             scanf("%lf", &valor);
-            realizarSaque(numConta, valor);
+            realizarSaque0(numConta, valor);
             break;
         case 0:
             printf("Saindo do programa. Obrigado!\n");

@@ -1,25 +1,20 @@
 // transferencia.c
 
-#include <stdio.h>
-#include <string.h>
+
 #include "../headers/conta.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 // Estrutura para representar uma conta bancária
-typedef struct {
-    char numero[20];
-    char titular[100];
-    double saldo;
-} ContaBancaria;
+conta;
 
-void salvarContaNoArquivo(const char *nomeArquivo, const ContaBancaria *conta) {
+void salvarContaNoArquivo(const char *nomeArquivo, const conta *conta) {
     FILE *arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para escrita");
-        exit(EXIT_FAILURE);
+        esperar(1000);
+        limparTela();
+        return 0;
     }
 
     fprintf(arquivo, "%s,%s,%.2lf", conta->numero, conta->titular, conta->saldo);
@@ -27,11 +22,13 @@ void salvarContaNoArquivo(const char *nomeArquivo, const ContaBancaria *conta) {
     fclose(arquivo);
 }
 
-void lerContaDoArquivo(const char *nomeArquivo, ContaBancaria *conta) {
+void lerContaDoArquivo(const char *nomeArquivo, conta *conta) {
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
         perror("Erro ao abrir o arquivo para leitura");
-        exit(EXIT_FAILURE);
+        esperar(1000);
+        limparTela();
+        return 0;
     }
 
     fscanf(arquivo, "%19[^,],%99[^,],%lf", conta->numero, conta->titular, &conta->saldo);
@@ -54,17 +51,19 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
     strcat(dirContaDestino, ".csv");
 
     // Abrir arquivo da conta de origem para leitura
-    ContaBancaria contaOrigem;
+    conta contaOrigem;
     lerContaDoArquivo(dirContaOrigem, &contaOrigem);
 
     // Validar se há saldo suficiente na conta de origem
     if (contaOrigem.saldo < valor) {
         printf("Saldo insuficiente para realizar a transferência.\n");
-        exit(EXIT_FAILURE);
+        esperar(1000);
+        limparTela();
+        return 0;
     }
 
     // Abrir arquivo da conta de destino para leitura
-    ContaBancaria contaDestino;
+    conta contaDestino;
     lerContaDoArquivo(dirContaDestino, &contaDestino);
 
     // Realizar a transferência
@@ -74,6 +73,10 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
     // Salvar contas atualizadas nos arquivos
     salvarContaNoArquivo(dirContaOrigem, &contaOrigem);
     salvarContaNoArquivo(dirContaDestino, &contaDestino);
+
+
+    esperar(800);
+    limparTela();
 
     // Exibir dados após a operação
     printf("\nDADOS DEPOIS DA OPERACAO\n");
@@ -85,21 +88,14 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
     printf("\tNumero: %s\n", contaDestino.numero);
     printf("\tTitular: %s\n", contaDestino.titular);
     printf("\tSaldo: R$ %.2lf\n", contaDestino.saldo);
+
+    esperar(4000);
+    limparTela();
 }
 
 
 
 void TransferirValor() {
-    // char numContaOrigem[9];
-    // char numContaDestino[9];
-    // char teste[9];
-    // char dirContaOrigem[255];
-    // char dirContaDestino[255];
-    // double transferencia;
-    // ContaBancaria contaOrigem;
-    // ContaBancaria contaDestino;
-
-
     char numContaOrigem[20];
     char numContaDestino[20];
     double valor;
