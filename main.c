@@ -56,11 +56,10 @@ int main() {
     printf("Escolha uma opcao:\n");
     printf("1. Criar nova conta\n");
     printf("2. Depositar e sacar dinheiro em uma conta\n");
-    printf("3. Mostrar saldo total de cada conta\n");
+    printf("3. Mostrar saldo total de uma conta\n");
     printf("4. Editar informacoes do titular de uma conta\n");
     printf("5. Remover conta\n");
     printf("6. Transferir valor de uma conta para outra\n");
-    printf("7. Salvar informacoes de cada conta em um arquivo\n");
     printf("0. Sair\n");
 
     // Obtém a escolha do usuário
@@ -94,11 +93,6 @@ int main() {
         case 6:
             printf("Opcao 6 selecionada: Transferir valor de uma conta para outra\n");
             TransferirValor();
-            esperar(10000);
-            break;
-        case 7:
-            printf("Opcao 7 selecionada: Salvar informacoes de cada conta em um arquivo\n");
-            SalvarInformacoes(contas,qtdContas);
             esperar(10000);
             break;
         case 0:
