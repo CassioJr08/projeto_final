@@ -6,6 +6,7 @@
 //cabeçalhos do projeto
 #include "./headers/conta.h"
 //arquivos do projeto
+#include "./funcionalidades/renomearConta.c"
 #include "./funcionalidades/realocarContas.c"
 #include "./funcionalidades/esperar.c"
 #include "./funcionalidades/limparTela.c"
@@ -24,28 +25,6 @@ int main() {
 
     //VARIÁVEIS
     int opcao;
-    int qtdContas = 0; //quantidade de contas
-    conta *contas = (conta*) calloc(qtdContas,sizeof(conta)); //vetor de contas
-
-
-    //apenas ****teste****, pode retirar da versão final
-    conta douglas = {"00891911","Douglas Souza de Lima",1559.9};
-    realocarContas(&contas,&qtdContas);
-    contas[qtdContas-1] = douglas;
-    conta carolina = {"00980991","Carolina do Norte",3540.1};
-    realocarContas(&contas,&qtdContas);
-    contas[qtdContas-1] = carolina;
-    conta adriel = {"67016100","Adriel da Cruz",2345.89};
-    realocarContas(&contas,&qtdContas);
-    contas[qtdContas-1] = adriel;
-    int i = 0;
-    while(i<3){
-        printf("contas[%d] = {\"%s\",\"%s\",%.2f}\n",i,contas[i].numero,contas[i].titular,contas[i].saldo);
-        i++;
-    }
-    printf("\n");
-    //apenas ****teste****, pode retirar da versão final
-
 
     do{
     //limpa o terminal
@@ -71,6 +50,7 @@ int main() {
         case 1:
             printf("Opcao 1 selecionada: Criar nova conta\n");
             criarConta();
+            esperar(10000);
             break;
         case 2:
             printf("Opcao 2 selecionada: Depositar e sacar dinheiro em uma conta\n");
@@ -84,7 +64,8 @@ int main() {
             break;
         case 4:
             printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
-            //EditarInformacoes();
+            EditarInformacoes();
+            esperar(10000);
             break;
         case 5:
             printf("Opcao 5 selecionada: Remover conta\n");
