@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 //cabeçalhos do projeto
-#include "../headers/conta.h"
+#include "../../headers/conta.h"
 
 //Renomeia o arquivo CSV da conta
 bool renomearConta(char nomeAntigo[],char nomeNovo[]){

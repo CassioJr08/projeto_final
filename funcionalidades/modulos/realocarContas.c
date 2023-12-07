@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 //cabeçalhos do projeto
-#include "../headers/conta.h"
+#include "../../headers/conta.h"
 
 /*
 Realoca um espaço extra no vetor contas.

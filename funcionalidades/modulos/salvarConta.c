@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 //cabeçalhos do projeto
-#include "../headers/conta.h"
+#include "../../headers/conta.h"
 
-//Salva os dados da conta em um arquivo
+//Salva os dados da conta em um arquivo CSV
 bool salvarConta(conta conta){
 
     char dir[255]; //diretório do arquivo

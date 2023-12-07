@@ -59,7 +59,7 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
 
     // Validar se há saldo suficiente na conta de origem
     if (contaOrigem.saldo < valor) {
-        printf("\nErro: Saldo insuficiente para realizar a transferência.\n");
+        printf("\nErro: Saldo insuficiente para realizar a transferencia.\n");
         return;
     }
 

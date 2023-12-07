@@ -6,13 +6,13 @@
 //cabeçalhos do projeto
 #include "./headers/conta.h"
 //arquivos do projeto
-#include "./funcionalidades/renomearConta.c"
-#include "./funcionalidades/realocarContas.c"
-#include "./funcionalidades/esperar.c"
-#include "./funcionalidades/limparTela.c"
-#include "./funcionalidades/contaExiste.c"
-#include "./funcionalidades/pesquisarConta.c"
-#include "./funcionalidades/salvarConta.c"
+#include "./funcionalidades/modulos/renomearConta.c"
+#include "./funcionalidades/modulos/realocarContas.c"
+#include "./funcionalidades/modulos/esperar.c"
+#include "./funcionalidades/modulos/limparTela.c"
+#include "./funcionalidades/modulos/contaExiste.c"
+#include "./funcionalidades/modulos/pesquisarConta.c"
+#include "./funcionalidades/modulos/salvarConta.c"
 #include "./funcionalidades/1_CriarNovaConta.c"
 #include "./funcionalidades/2_DepositoSaque.c"
 //#include "./funcionalidades/3_MostrarSaldo.c"
@@ -49,31 +49,34 @@ int main() {
         case 1:
             printf("Opcao 1 selecionada: Criar nova conta\n");
             criarConta();
-            esperar(10000);
+            esperar(5000);
             break;
         case 2:
             printf("Opcao 2 selecionada: Depositar e sacar dinheiro em uma conta\n");
             DepositoSaque();
+            esperar(5000);
             break;
         case 3:
             printf("Opcao 3 selecionada: Mostrar saldo total de cada conta\n");
             //MostrarSaldo();
             // Verificar com a Kamila
             // O programa está dando erro na execução do MostrarSaldo()
+            esperar(5000);
             break;
         case 4:
             printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
             EditarInformacoes();
-            esperar(10000);
+            esperar(5000);
             break;
         case 5:
             printf("Opcao 5 selecionada: Remover conta\n");
             RemoverConta();
+            esperar(5000);
             break;
         case 6:
             printf("Opcao 6 selecionada: Transferir valor de uma conta para outra\n");
             TransferirValor();
-            esperar(10000);
+            esperar(5000);
             break;
         case 0:
             printf("Saindo do programa. Obrigado!\n");
