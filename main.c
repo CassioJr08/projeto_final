@@ -15,7 +15,7 @@
 #include "./funcionalidades/1_CriarNovaConta.c"
 #include "./funcionalidades/2_DepositoSaque.c"
 //#include "./funcionalidades/3_MostrarSaldo.c"
-//#include "./funcionalidades/4_EditarInformacoes.c"
+#include "./funcionalidades/4_EditarInformacoes.c"
 #include "./funcionalidades/5_RemoverConta.c"
 #include "./funcionalidades/6_TransferirValor.c"
 #include "./funcionalidades/7_SalvarInformacoes.c"
