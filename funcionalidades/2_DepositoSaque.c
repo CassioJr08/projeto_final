@@ -3,14 +3,6 @@
 #include <string.h>
 #include "../headers/conta.h"
 
-// Estrutura para representar uma conta bancaria...
-conta;
-// typedef struct {
-//     char numero[20];
-//     char titular[100];
-//     double saldo;
-// } ContaBancaria;
-
 void salvarContaNoArquivo0(const char *nomeArquivo, const conta *conta) {
     FILE *arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
@@ -55,7 +47,7 @@ void realizarDeposito0(const char *numConta, double valor) {
     salvarContaNoArquivo0(dirConta, &conta);
 
     // Exibir dados apos a operação
-    printf("\nDADOS APoS O DEPoSITO\n");
+    printf("\nDADOS APOS O DEPOSITO\n");
     printf("\n\tConta\n");
     printf("\tNumero: %s\n", conta.numero);
     printf("\tTitular: %s\n", conta.titular);
@@ -87,7 +79,7 @@ void realizarSaque0(const char *numConta, double valor) {
     salvarContaNoArquivo0(dirConta, &conta);
 
     // Exibir dados apos a operação
-    printf("\nDADOS APoS O SAQUE\n");
+    printf("\nDADOS APOS O SAQUE\n");
     printf("\n\tConta\n");
     printf("\tNumero: %s\n", conta.numero);
     printf("\tTitular: %s\n", conta.titular);
@@ -136,6 +128,4 @@ void realizarOperacao() {
 
 void DepositoSaque(){
     realizarOperacao();
-    return 0;
 }
-    

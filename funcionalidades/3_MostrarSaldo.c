@@ -9,39 +9,12 @@ typedef struct {
     double saldo;
 } ContaBancaria;
 
-// Função para salvar uma conta no arquivo
-void salvarContaNoArquivo(const char *nomeArquivo, const ContaBancaria *conta) {
-    FILE *arquivo = fopen(nomeArquivo, "w");
-    if (arquivo == NULL) {
-        perror("Erro ao abrir o arquivo para escrita");
-        exit(EXIT_FAILURE);
-    }
-
-    fprintf(arquivo, "%s,%s,%.2lf", conta->numero, conta->titular, conta->saldo);
-
-    fclose(arquivo);
-}
-
-// Função para ler uma conta do arquivo
-void lerContaDoArquivo(const char *nomeArquivo, ContaBancaria *conta) {
-    FILE *arquivo = fopen(nomeArquivo, "r");
-    if (arquivo == NULL) {
-        perror("Erro ao abrir o arquivo para leitura");
-        printf("Caminho do arquivo: %s\n", nomeArquivo);
-        exit(EXIT_FAILURE);
-    }
-
-    fscanf(arquivo, "%19[^,],%99[^,],%lf", conta->numero, conta->titular, &conta->saldo);
-
-    fclose(arquivo);
-}
-
 // Função para consultar o saldo de uma conta
 void consultarSaldoConta(const char *numConta) {
     char dirConta[100];
 
     // Construir o caminho do arquivo para a conta
-    snprintf(dirConta, sizeof(dirConta), "../contas/%s.csv", numConta);
+    snprintf(dirConta,(sizeof(dirConta)/sizeof(dirConta[0])), "../contas/%s.csv", numConta);
 
     // Abrir arquivo da conta para leitura
     FILE *arquivo = fopen(dirConta, "r");

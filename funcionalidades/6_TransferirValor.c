@@ -1,9 +1,9 @@
-// transferencia.c
-
+#include <stdio.h>
+/*
+Douglas_
+Estava faltando incluir a biblioteca stdio!
+*/
 #include "../headers/conta.h"
-
-// Chamando estrutura da conta bancaria
-conta;
 
 void salvarContaNoArquivo(const char *nomeArquivo, const conta *conta) {
     FILE *arquivo = fopen(nomeArquivo, "w");
@@ -56,7 +56,7 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
         printf("Saldo insuficiente para realizar a transferência.\n");
         esperar(1000);
         limparTela();
-        return 0;
+        return;
     }
 
     // Abrir arquivo da conta de destino para leitura
@@ -70,7 +70,6 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
     // Salvar contas atualizadas nos arquivos
     salvarContaNoArquivo(dirContaOrigem, &contaOrigem);
     salvarContaNoArquivo(dirContaDestino, &contaDestino);
-
 
     esperar(800);
     limparTela();
@@ -108,7 +107,4 @@ void TransferirValor() {
 
     // Chamar a função de transferência
     transferirSaldo(numContaOrigem, numContaDestino, valor);
-
-    return 0;
-  
 }

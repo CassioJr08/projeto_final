@@ -17,35 +17,12 @@
 #include "./funcionalidades/3_MostrarSaldo.c"
 //#include "./funcionalidades/4_EditarInformacoes.c"
 #include "./funcionalidades/5_RemoverConta.c"
-//#include "./funcionalidades/6_TransferirValor.c"
-#include "./funcionalidades/7_SalvarInformacoes.c"
+#include "./funcionalidades/6_TransferirValor.c"
 
 int main() {
 
     //VARIÁVEIS
     int opcao;
-    int qtdContas = 0; //quantidade de contas
-    conta *contas = (conta*) calloc(qtdContas,sizeof(conta)); //vetor de contas
-
-
-    //apenas ****teste****, pode retirar da versão final
-    conta douglas = {"00891911","Douglas Souza de Lima",1559.9};
-    realocarContas(&contas,&qtdContas);
-    contas[qtdContas-1] = douglas;
-    conta carolina = {"00980991","Carolina do Norte",3540.1};
-    realocarContas(&contas,&qtdContas);
-    contas[qtdContas-1] = carolina;
-    conta adriel = {"67016100","Adriel da Cruz",2345.89};
-    realocarContas(&contas,&qtdContas);
-    contas[qtdContas-1] = adriel;
-    int i = 0;
-    while(i<3){
-        printf("contas[%d] = {\"%s\",\"%s\",%.2f}\n",i,contas[i].numero,contas[i].titular,contas[i].saldo);
-        i++;
-    }
-    printf("\n");
-    //apenas ****teste****, pode retirar da versão final
-
 
     do{
     //limpa o terminal
@@ -71,29 +48,31 @@ int main() {
         case 1:
             printf("Opcao 1 selecionada: Criar nova conta\n");
             criarConta();
+            esperar(5000);
             break;
         case 2:
             printf("Opcao 2 selecionada: Depositar e sacar dinheiro em uma conta\n");
             DepositoSaque();
+            esperar(5000);
             break;
         case 3:
             printf("Opcao 3 selecionada: Mostrar saldo total de cada conta\n");
             MostrarSaldo();
-            // Verificar com a Kamila
-            // O programa está dando erro na execução do MostrarSaldo()
+            esperar(5000);
             break;
         case 4:
             printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
             //EditarInformacoes();
+            esperar(5000);
             break;
         case 5:
             printf("Opcao 5 selecionada: Remover conta\n");
             RemoverConta();
+            esperar(5000);
             break;
         case 6:
             printf("Opcao 6 selecionada: Transferir valor de uma conta para outra\n");
-            //TransferirValor();
-            esperar(1000);
+            TransferirValor();
             break;
         case 0:
             printf("Saindo do programa. Obrigado!\n");
