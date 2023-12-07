@@ -19,7 +19,6 @@
 #include "./funcionalidades/4_EditarInformacoes.c"
 #include "./funcionalidades/5_RemoverConta.c"
 #include "./funcionalidades/6_TransferirValor.c"
-#include "./funcionalidades/7_SalvarInformacoes.c"
 
 int main() {
 
