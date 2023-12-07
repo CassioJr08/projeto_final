@@ -133,7 +133,8 @@ void realizarOperacao() {
     }
 }
 
-int main() {
+void DepositoSaque(){
     realizarOperacao();
     return 0;
 }
+    
