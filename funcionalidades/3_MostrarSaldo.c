@@ -1,116 +1,75 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
+#include "../headers/conta.h"
 
-#define MAX_CONTAS 100
-#define MAX_TAMANHO_NOME 50
-#define MAX_TAMANHO_ARQUIVO 255
+// Função para pesquisar uma conta no arquivo CSV
+conta pesquisarContaCSV(char numConta[]) {
+    char dir[255];
+    strcpy(dir, "./contas/"); // Ajuste: diretório local
+    strcat(dir, numConta);
+    strcat(dir, ".csv");
 
-typedef struct {
-    char titular[MAX_TAMANHO_NOME];
-    int numeroConta;
-    double saldo;
-} ContaBancaria;
+    FILE *arquivo = fopen(dir, "r");
 
-// Função para carregar contas a partir de um arquivo
-int carregarContas(ContaBancaria contas[], const char *nomeArquivo) {
-    FILE *arquivo = fopen(nomeArquivo, "r");
-    if (arquivo == NULL) {
-        perror("Erro ao abrir o arquivo para leitura");
-        return 0; // Falha ao abrir o arquivo
-    }
+    if (arquivo != NULL) {
+        char dados[255];
+        fscanf(arquivo, "%[^\n]", dados);
+        fclose(arquivo);
 
-    int numContas = 0;
-    while (fscanf(arquivo, "%d,%49[^,],%lf", &contas[numContas].numeroConta, contas[numContas].titular, &contas[numContas].saldo) == 3) {
-        numContas++;
-        if (numContas >= MAX_CONTAS) {
-            break; // Evitar overflow no array contas
-        }
-    }
+        conta conta;
+        char *token;
+        char *endptr;
 
-    fclose(arquivo);
-    return numContas; // Retorna o número de contas carregadas
-}
+        token = strtok(dados, ",");
+        strcpy(conta.numero, token);
 
-// Função para mostrar o saldo de uma conta específica
-void mostrarSaldo(ContaBancaria contas[], int numContas) {
-    int numeroConta;
-    char nomeTitular[MAX_TAMANHO_NOME];
+        token = strtok(NULL, ",");
+        strcpy(conta.titular, token);
 
-    // Entrada do número da conta
-    printf("Digite o numero da conta: ");
-    scanf("%d", &numeroConta);
+        token = strtok(NULL, ",");
+        conta.saldo = strtod(token, &endptr);
 
-    // Verificação se o número da conta é válido
-    if (numeroConta < 0 || numeroConta >= numContas) {
-        printf("Numero da conta invalido.\n");
-        return;
-    }
-
-    // Entrada do nome do titular 
-    printf("Digite o nome do titular: ");
-    getchar(); // Limpar o buffer do teclado antes de ler a string
-    fgets(nomeTitular, sizeof(nomeTitular), stdin);
-
-    // Remover o caractere de nova linha do final da string (se existir)
-    nomeTitular[strcspn(nomeTitular, "\n")] = '\0';
-
-    // Buscar a conta correspondente
-    int indiceConta = -1;
-    for (int i = 0; i < numContas; i++) {
-        // Comparação sem diferenciar maiúsculas e minúsculas no nome do titular
-        if (contas[i].numeroConta == numeroConta && strcasecmp(contas[i].titular, nomeTitular) == 0) {
-            indiceConta = i;
-            break;
-        }
-    }
-
-    // Exibir saldo ou informar que a conta não foi encontrada
-    if (indiceConta != -1) {
-        printf("Saldo da conta de %s: %.2f\n", contas[indiceConta].titular, contas[indiceConta].saldo);
+        return conta;
     } else {
-        printf("Conta nao encontrada.\n");
+        conta contaVazia = {"", "", 0.0};
+        return contaVazia;
     }
 }
 
-int main() {
-    ContaBancaria contas[MAX_CONTAS];
+// Função para verificar se a conta existe
+bool contaExiste(char numConta[]) {
+    char dir[255]; // diretório do arquivo
+    // cria o diretório
+    strcpy(dir, "../contas/");
+    strcat(dir, numConta);
+    strcat(dir, ".csv");
 
-    // Nome do arquivo CSV (altere para o nome do seu arquivo)
-    const char *nomeArquivo = "./.csv";
-
-    // Carregar as contas do arquivo
-    int numContas = carregarContas(contas, nomeArquivo);
-
-    // Verificar se houve falha ao carregar as contas
-    if (numContas == 0) {
-        return 1; // Código de erro
+    if (access(dir, F_OK) == 0) {
+        return true;
+    } else {
+        return false;
     }
+}
+// Função para mostrar o saldo de uma conta
+void MostrarSaldo() {
+    char numConta[9];
 
-    int opcao;
+    printf("Digite o numero da conta: ");
+    scanf("%s", numConta);
 
-    do {
-        // Menu principal
-        printf("\nEscolha uma opcao:\n");
-        printf("3. Mostrar saldo total de cada conta\n");
-        printf("0. Sair\n");
+    if (!contaExiste(numConta)) {
+        printf("Conta nao encontrada.\n");
+    } else {
+        conta conta = pesquisarContaCSV(numConta);
 
-        // Entrada da opção desejada
-        printf("Digite o numero da opcao desejada: ");
-        scanf("%d", &opcao);
-
-        // Executar a opção escolhida
-        switch (opcao) {
-            case 3:
-                mostrarSaldo(contas, numContas);
-                break;
-            case 0:
-                printf("Saindo do programa. Obrigado!\n");
-                break;
-            default:
-                printf("Opcao invalida. Tente novamente!!!\n");
+        if (conta.saldo != 0.0) {
+            printf("Numero da conta: %s\n", conta.numero);
+            printf("Nome do titular: %s\n", conta.titular);
+            printf("Saldo: %.2f\n", conta.saldo);
+        } else {
+            printf("Conta nao encontrada.\n");
         }
-
-    } while (opcao != 0);
-
-    return 0;
+    }
 }
