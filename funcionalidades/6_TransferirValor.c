@@ -1,11 +1,8 @@
 // transferencia.c
 
-
 #include "../headers/conta.h"
 
-
-
-// Estrutura para representar uma conta bancária
+// Chamando estrutura da conta bancaria
 conta;
 
 void salvarContaNoArquivo(const char *nomeArquivo, const conta *conta) {
@@ -92,7 +89,6 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
     esperar(4000);
     limparTela();
 }
-
 
 
 void TransferirValor() {
