@@ -9,7 +9,7 @@ conta pesquisarConta(char numConta[]){
 
     char dir[255]; //diretório do arquivo
     //cria o diretório
-    strcpy(dir,"./contas/");
+    strcpy(dir,"../contas/");
     strcat(dir,numConta);
     strcat(dir,".csv");
 

@@ -9,20 +9,20 @@
 void criarConta() {
     conta novaConta;
 
-    printf("Digite o número da conta: ");
+    printf("Digite o numero da conta: ");
     scanf("%s", novaConta.numero);
     
-// adicionei "contaExiste" para verificar se a conta ja existe no sistema
+// adicionei a função "contaExiste" para verificar se a conta ja existe no sistema
     if (contaExiste(novaConta.numero)) {
-        printf("O número da conta já existe.\n");
+        printf("O numero da conta já existe.\n");
     } else {
         printf("Digite o nome do titular: ");
         scanf("%s", novaConta.titular);
-
-        novaConta.saldo = 0.0;
-
-      printf("Conta criada com sucesso.\n");
+        
+// retirei a parte do saldo pois nao era necessária 
+    
+      printf("Conta criada com sucesso!\n");
     }
-
+// a função salvarConta lida com os arquivos para salvar as informações das novas contas 
     salvarConta(novaConta);
 }
