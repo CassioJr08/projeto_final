@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../headers/conta.h"
 
 // Estrutura para representar uma conta bancária
 typedef struct {
@@ -10,6 +9,7 @@ typedef struct {
     double saldo;
 } ContaBancaria;
 
+// Função para salvar uma conta no arquivo
 void salvarContaNoArquivo(const char *nomeArquivo, const ContaBancaria *conta) {
     FILE *arquivo = fopen(nomeArquivo, "w");
     if (arquivo == NULL) {
@@ -22,6 +22,7 @@ void salvarContaNoArquivo(const char *nomeArquivo, const ContaBancaria *conta) {
     fclose(arquivo);
 }
 
+// Função para ler uma conta do arquivo
 void lerContaDoArquivo(const char *nomeArquivo, ContaBancaria *conta) {
     FILE *arquivo = fopen(nomeArquivo, "r");
     if (arquivo == NULL) {
@@ -35,6 +36,7 @@ void lerContaDoArquivo(const char *nomeArquivo, ContaBancaria *conta) {
     fclose(arquivo);
 }
 
+// Função para consultar o saldo de uma conta
 void consultarSaldoConta(const char *numConta) {
     char dirConta[100];
 
@@ -53,21 +55,32 @@ void consultarSaldoConta(const char *numConta) {
     fscanf(arquivo, "%19[^,],%99[^,],%lf", conta.numero, conta.titular, &conta.saldo);
 
     // Exibir dados da conta
-    printf("\nDADOS DA CONTA\n");
-    printf("\n\tConta\n");
-    printf("\tNumero: %s\n", conta.numero);
     printf("\tTitular: %s\n", conta.titular);
-    printf("\tSaldo: R$ %.2lf\n", conta.saldo);
+    printf("\tSaldo total: R$ %.2lf\n", conta.saldo);
 
     fclose(arquivo);
 }
 
+// Função para validar se um número de conta é válido
+int validarNumeroConta(const char *numConta) {
+
+    return strlen(numConta) == 8;
+}
+
+// Função para mostrar o saldo de uma conta 
 void MostrarSaldo() {
     char numConta[20];
 
-    // Perguntar o número da conta e guardar na variável
-    printf("Digite o numero da conta: ");
-    scanf("%s", numConta);
+    // Perguntar o número da conta e validar
+    do {
+        printf("Digite o numero da conta: ");
+        scanf("%s", numConta);
+
+        if (!validarNumeroConta(numConta)) {
+            printf("Numero de conta invalido. Tente novamente.\n");
+        }
+
+    } while (!validarNumeroConta(numConta));
 
     // Chama a função para mostrar o saldo
     consultarSaldoConta(numConta);
