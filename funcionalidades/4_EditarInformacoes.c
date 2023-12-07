@@ -2,6 +2,40 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+Douglas
+
+    _colocar no topo do código: #include "../headers/conta.h"
+
+    _apagar a struct contaBancária (o código vai reconhecer a struct pelo identificador 'conta')
+    ~ em caso de dúvida olhar o arquivo conta.h
+
+    _criar uma variável do tipo vetor de char com tamanho 9
+    _perguntar o número da conta e guardar na variável
+
+    _chamar a função contaExiste() passando o número como parâmetro
+    _usar um if else para validar se a conta existe, caso não exista printar um erro na tela e usar o comando "return" para parar a execução
+    ~ em caso de dúvida olhar o arquivo contaExiste.c
+
+    _apagar a função criarConta
+    _no lugar chamar a função pesquisarConta() passando número como parâmetro
+    ~ em caso de dúvida olhar o arquivo pesquisarConta.c
+
+    _a função pesquisarConta() retorna os dados da conta que estão em um arquivo CSV
+    _chamar a função atribuindo ela a uma variável do tipo 'conta'
+    Ex.: conta contaNova = pesquisarConta(numero)
+
+    _criar sua lógica em cima, modificando os dados da struct 'conta' (número e nome do titular)
+    _no final chamar a função salvarConta() passando a struct como parâmetro
+    Ex.: salvarConta(contaNova)
+
+    
+qualquer dúvida pode me chamar no privado!
+amanhã vamos precisar enviar todos os códigos pelo AVA
+
+*/
+
+
 // Estrutura para armazenar informações da conta
 typedef struct {
     int numeroConta;

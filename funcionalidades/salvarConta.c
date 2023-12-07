@@ -9,7 +9,7 @@ bool salvarConta(conta conta){
 
     char dir[255]; //diretório do arquivo
     //cria o diretório
-    strcpy(dir,"./contas/");
+    strcpy(dir,"../contas/");
     strcat(dir,conta.numero);
     strcat(dir,".csv");
 
