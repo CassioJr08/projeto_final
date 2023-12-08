@@ -5,10 +5,6 @@
 #include <stdbool.h>
 
 void EditarInformacoes(){
-    /*
-    Douglas_
-    Mudei o tipo da função para void, pois a função não retorna valor.
-    */
 
     //Número da conta bancária
     char numeroConta[9];
