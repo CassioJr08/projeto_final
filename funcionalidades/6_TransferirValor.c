@@ -53,9 +53,13 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
 
     // Validar se há saldo suficiente na conta de origem
     if (contaOrigem.saldo < valor) {
+<<<<<<< HEAD
         printf("Saldo insuficiente para realizar a transferência.\n");
         esperar(1000);
         limparTela();
+=======
+        printf("\nErro: Saldo insuficiente para realizar a transferencia.\n");
+>>>>>>> correções
         return;
     }
 
@@ -85,24 +89,29 @@ void transferirSaldo(const char *numContaOrigem, const char *numContaDestino, do
     printf("\tTitular: %s\n", contaDestino.titular);
     printf("\tSaldo: R$ %.2lf\n", contaDestino.saldo);
 
+<<<<<<< HEAD
     esperar(4000);
     limparTela();
 }
 
 
 void TransferirValor() {
+=======
+void TransferirValor() {
+
+>>>>>>> correções
     char numContaOrigem[20];
     char numContaDestino[20];
     double valor;
 
     // Obter informações do usuário
-    printf("Informe o numero da conta de origem: ");
+    printf("\nInforme o numero da conta de origem: ");
     scanf("%s", numContaOrigem);
 
-    printf("Informe o numero da conta de destino: ");
+    printf("\nInforme o numero da conta de destino: ");
     scanf("%s", numContaDestino);
 
-    printf("Informe o valor a ser transferido: ");
+    printf("\nInforme o valor a ser transferido: ");
     scanf("%lf", &valor);
 
     // Chamar a função de transferência

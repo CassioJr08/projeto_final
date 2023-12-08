@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 //cabeçalhos do projeto
-#include "../headers/conta.h"
+#include "../../headers/conta.h"
 
-//Pesquisa o arquivo de dados (csv) da conta
+//Pesquisa os dados do arquivo CSV da conta
 conta pesquisarConta(char numConta[]){
 
     char dir[255]; //diretório do arquivo
