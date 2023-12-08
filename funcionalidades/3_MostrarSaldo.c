@@ -1,12 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-<<<<<<< HEAD
-=======
 #include <stdbool.h>
 #include <unistd.h>
 #include "../headers/conta.h"
->>>>>>> correções
 
 // Estrutura para representar uma conta bancária
 typedef struct {

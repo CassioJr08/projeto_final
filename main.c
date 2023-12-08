@@ -16,7 +16,7 @@
 #include "./funcionalidades/1_CriarNovaConta.c"
 #include "./funcionalidades/2_DepositoSaque.c"
 #include "./funcionalidades/3_MostrarSaldo.c"
-//#include "./funcionalidades/4_EditarInformacoes.c"
+#include "./funcionalidades/4_EditarInformacoes.c"
 #include "./funcionalidades/5_RemoverConta.c"
 #include "./funcionalidades/6_TransferirValor.c"
 
@@ -58,22 +58,12 @@ int main() {
             break;
         case 3:
             printf("Opcao 3 selecionada: Mostrar saldo total de cada conta\n");
-<<<<<<< HEAD
             MostrarSaldo();
-=======
-            //MostrarSaldo();
-            // Verificar com a Kamila
-            // O programa está dando erro na execução do MostrarSaldo()
->>>>>>> correções
             esperar(5000);
             break;
         case 4:
             printf("Opcao 4 selecionada: Editar informacoes do titular de uma conta\n");
-<<<<<<< HEAD
-            //EditarInformacoes();
-=======
             EditarInformacoes();
->>>>>>> correções
             esperar(5000);
             break;
         case 5:
@@ -84,10 +74,6 @@ int main() {
         case 6:
             printf("Opcao 6 selecionada: Transferir valor de uma conta para outra\n");
             TransferirValor();
-<<<<<<< HEAD
-=======
-            esperar(5000);
->>>>>>> correções
             break;
         case 0:
             printf("Saindo do programa. Obrigado!\n");
